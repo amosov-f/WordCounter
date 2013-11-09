@@ -21,10 +21,10 @@ public class Main {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
-        FileInputFormat.addInputPath(job, new Path(args[0]));
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
+        FileInputFormat.addInputPath(job, new Path("input.txt"));
+        FileOutputFormat.setOutputPath(job, new Path("output"));
 
-        FileUtils.deleteDirectory(new File(args[1]));
+        FileUtils.deleteDirectory(new File("output"));
         job.waitForCompletion(true);
     }
 }
